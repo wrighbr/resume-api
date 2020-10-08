@@ -1,1 +1,0 @@
-resource "resume_contact" {}

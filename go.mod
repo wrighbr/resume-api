@@ -1,4 +1,4 @@
-module github.com/wrighbr/resume
+module github.com/wrighbr/resume-api
 
 go 1.15
 

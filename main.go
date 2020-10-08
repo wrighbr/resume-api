@@ -7,7 +7,7 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/wrighbr/resume/api/models"
+	"github.com/wrighbr/resume-api/models"
 )
 
 type Post struct {
