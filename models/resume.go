@@ -1,15 +1,15 @@
 package models
 
 type ContactInfo struct {
-	Name     string
-	Mobile   string
-	Email    string
-	Address  string
-	Town     string
-	Country  string
-	Github   string
-	LinkedIn string
-	Website  string
+	Name     string `json:"name,omitempty"`
+	Mobile   string `json:"mobile,omitempty"`
+	Email    string `json:"email,omitempty"`
+	Address  string `json:"address,omitempty"`
+	Town     string `json:"town,omitempty"`
+	Country  string `json:"country,omitempty"`
+	Github   string `json:"github,omitempty"`
+	LinkedIn string `json:"linkedin,omitempty"`
+	Website  string `json:"website,omitempty"`
 }
 
 type Experience struct {
