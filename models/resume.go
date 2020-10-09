@@ -1,5 +1,11 @@
 package models
 
+type Resume struct {
+	ContactInfo ContactInfo
+	Experience  []Experience
+	Education   []Education
+}
+
 type ContactInfo struct {
 	Name     string `json:"name,omitempty"`
 	Mobile   string `json:"mobile,omitempty"`
@@ -13,6 +19,7 @@ type ContactInfo struct {
 }
 
 type Experience struct {
+	ID             int
 	StartDate      string
 	EndDate        string
 	Company        string
@@ -24,6 +31,7 @@ type Experience struct {
 }
 
 type Education struct {
+	ID        int
 	School    string
 	Sourse    string
 	StartDate string
