@@ -1,12 +1,13 @@
 package models
 
 type Resume struct {
-	ContactInfo ContactInfo
-	Experience  []Experience
-	Education   []Education
+	ContactInfo ContactInfo  `json:"contact_info,omitempty"`
+	Experience  []Experience `json:"experience,omitempty"`
+	Education   []Education  `json:"education,omitempty"`
 }
 
 type ContactInfo struct {
+	ID       int    `json:"id"`
 	Name     string `json:"name,omitempty"`
 	Mobile   string `json:"mobile,omitempty"`
 	Email    string `json:"email,omitempty"`
@@ -16,6 +17,7 @@ type ContactInfo struct {
 	Github   string `json:"github,omitempty"`
 	LinkedIn string `json:"linkedin,omitempty"`
 	Website  string `json:"website,omitempty"`
+	PostCode int    `json:"postcode,omitempty"`
 }
 
 type Experience struct {
@@ -39,6 +41,7 @@ type Education struct {
 }
 
 type Language struct {
+	ID          int
 	Language    string
 	Proficiency string
 }
