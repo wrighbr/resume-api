@@ -20,6 +20,13 @@ func HandleRequests() {
 	router.HandleFunc("/experience", createExperience).Methods("POST")
 	router.HandleFunc("/experience/{ID}", readExperience).Methods("GET")
 	router.HandleFunc("/experience/{ID}", updateExperience).Methods("PUT")
+	router.HandleFunc("/experience/{ID}", deleteExperience).Methods("DELETE")
+
+	router.HandleFunc("/education", getAllEducation).Methods("GET")
+	router.HandleFunc("/education", createEducation).Methods("POST")
+	router.HandleFunc("/education/{ID}", readEducation).Methods("GET")
+	router.HandleFunc("/education/{ID}", updateEducation).Methods("PUT")
+	router.HandleFunc("/education/{ID}", deleteEducation).Methods("DELETE")
 
 	router.HandleFunc("/resume", getResume).Methods("GET")
 

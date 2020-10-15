@@ -4,6 +4,8 @@ type Resume struct {
 	ContactInfo ContactInfo  `json:"contact_info,omitempty"`
 	Experience  []Experience `json:"experience,omitempty"`
 	Education   []Education  `json:"education,omitempty"`
+	Language    []Language   `json:"language,omitempty"`
+	TechSkills  []TechSkills `json:"tech_skills,omitempty"`
 }
 
 type ContactInfo struct {
@@ -21,30 +23,35 @@ type ContactInfo struct {
 }
 
 type Experience struct {
-	ID             int
-	StartDate      string
-	EndDate        string
-	Company        string
-	Role           string
-	Description    string
-	Duration       string
-	Location       string
-	EmploymentType string
+	ID             int    `json:"id"`
+	StartDate      string `json:"start_date,omitempty"`
+	EndDate        string `json:"end_data,omitempty"`
+	Company        string `json:"company,omitempty"`
+	Role           string `json:"role,omitempty"`
+	Description    string `json:"description,omitempty"`
+	Duration       string `json:"duration,omitempty"`
+	Location       string `json:"location,omitempty"`
+	EmploymentType string `json:"employment_type,omitempty"`
 }
 
 type Education struct {
-	ID        int
-	School    string
-	Sourse    string
-	StartDate string
-	EndDate   string
+	ID          int    `json:"id"`
+	Institution string `json:"institution,omitempty"`
+	Course      string `json:"course,omitempty"`
+	StartDate   string `json:"start_date,omitempty"`
+	EndDate     string `json:"end_date,omitempty"`
 }
 
 type Language struct {
-	ID          int
-	Language    string
-	Proficiency string
+	ID          int    `json:"id"`
+	Language    string `json:"language,omitempty"`
+	Proficiency string `json:"proficiency,omitempty"`
 }
 
 type TechSkills struct {
+	ID    int      `json:"id"`
+	Skill string   `json:"skill,omitempty"`
+	Tags  []string `json:"tags,omitempty"`
+	Stars int      `json:"Stars,omitempty"`
+	// Technology []string `json:"technology,omitempty"`
 }

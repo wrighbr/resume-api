@@ -92,6 +92,8 @@ func deleteExperience(w http.ResponseWriter, r *http.Request) {
 
 func getAllExperience(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	// var experience []models.Experience
+	experience = nil
 	var data models.Experience
 
 	ctx := context.Background()
@@ -113,8 +115,10 @@ func getAllExperience(w http.ResponseWriter, r *http.Request) {
 		}
 		experience = append(experience, data)
 	}
-
-	json.NewEncoder(w).Encode(experience)
+	// jsonResponse = true
+	if jsonResponse {
+		json.NewEncoder(w).Encode(experience)
+	}
 }
 
 func createClient(ctx context.Context) *firestore.Client {
