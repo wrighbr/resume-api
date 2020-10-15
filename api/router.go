@@ -16,8 +16,10 @@ func HandleRequests() {
 	router.HandleFunc("/contactinfo", updateContantInfo).Methods("PUT")
 	router.HandleFunc("/contactinfo", deleteContantInfo).Methods("DELETE")
 
+	router.HandleFunc("/experience", getAllExperience).Methods("GET")
 	router.HandleFunc("/experience", createExperience).Methods("POST")
-	router.HandleFunc("/experience", listExperience).Methods("GET")
+	router.HandleFunc("/experience/{ID}", readExperience).Methods("GET")
+	router.HandleFunc("/experience/{ID}", updateExperience).Methods("PUT")
 
 	router.HandleFunc("/resume", getResume).Methods("GET")
 
