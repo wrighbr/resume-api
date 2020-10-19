@@ -36,5 +36,7 @@ func getResume(w http.ResponseWriter, r *http.Request) {
 		Education:   education,
 	}
 
+	jsonResponse = true
+
 	json.NewEncoder(w).Encode(resume)
 }
