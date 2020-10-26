@@ -14,11 +14,11 @@ var contactInfo models.ContactInfo
 
 // getContctInfo godoc
 // @Summary Gets the contact information
-// @Description Get details of all orders
+// @Description Get the contact information
 // @Tags contact
 // @Accept  json
 // @Produce  json
-// @Success 200 {array} Order
+// @Success 200
 // @Router /contactinfo [get]
 func getContactInfo(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -29,6 +29,13 @@ func getContactInfo(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(doc)
 }
 
+// createContctInfo godoc
+// @Summary Creates contact information
+// @Param name body models.ContactInfo true "Personal Contact Information"
+// @Tags contact
+// @Accept  json
+// @Success 200
+// @Router /contactinfo [post]
 func createContantInfo(w http.ResponseWriter, r *http.Request) {
 
 	contactInfo := fillinContactInfo(r)
@@ -36,6 +43,12 @@ func createContantInfo(w http.ResponseWriter, r *http.Request) {
 	client.CreateDocument(collectionContactInfo, contactInfo)
 }
 
+// ContctInfo godoc
+// @Summary Updates contact information
+// @Tags contact
+// @Accept  json
+// @Success 200
+// @Router /contactinfo [put]
 func updateContantInfo(w http.ResponseWriter, r *http.Request) {
 
 	contactInfo := fillinContactInfo(r)
@@ -44,6 +57,12 @@ func updateContantInfo(w http.ResponseWriter, r *http.Request) {
 	client.UpdateDocument(collectionContactInfo, id, contactInfo)
 }
 
+// createContctInfo godoc
+// @Summary Deletes contact information
+// @Tags contact
+// @Accept  json
+// @Success 200
+// @Router /contactinfo [delete]
 func deleteContantInfo(w http.ResponseWriter, r *http.Request) {
 	id, _ := client.ReadDocument(collectionContactInfo, 1)
 

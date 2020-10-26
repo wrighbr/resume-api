@@ -31,6 +31,14 @@ func fillInEducation(r *http.Request) *models.Education {
 	}
 }
 
+// createEducation godoc
+// @Summary Creates Education information
+// @Description Get the contact information
+// @Tags Education
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /education [post]
 func createEducation(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -40,6 +48,15 @@ func createEducation(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// readEducation godoc
+// @Summary reads Education information
+// @Description Get the contact information
+// @Tags Education
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Failure 404  "education id not found"
+// @Router /education/{id} [get]
 func readEducation(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -54,6 +71,15 @@ func readEducation(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(jsonData)
 }
 
+// updateEducation godoc
+// @Summary updates Educational information
+// @Description Updates the education information
+// @Tags Education
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Failure 404
+// @Router /education/{id} [put]
 func updateEducation(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -70,6 +96,15 @@ func updateEducation(w http.ResponseWriter, r *http.Request) {
 	client.UpdateDocument(colEducation, docID, jsonData)
 }
 
+// deleteEducation godoc
+// @Summary deletes education information
+// @Description deletes the eduation information
+// @Tags Education
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Failure 404
+// @Router /education/{id} [delete]
 func deleteEducation(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -85,6 +120,14 @@ func deleteEducation(w http.ResponseWriter, r *http.Request) {
 	client.DeleteDocument(colEducation, docID)
 }
 
+// getAllEducation godoc
+// @Summary Gets all Educational information
+// @Description Gets all Educational information
+// @Tags Education
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /education [get]
 func getAllEducation(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	education = nil

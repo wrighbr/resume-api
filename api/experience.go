@@ -36,6 +36,13 @@ func fillInxperience(r *http.Request) *models.Experience {
 	}
 }
 
+// createExperience godoc
+// @Summary Creates Experience information
+// @Tags Experience
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /experience [post]
 func createExperience(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -45,6 +52,13 @@ func createExperience(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// readExperience godoc
+// @Summary Reads Experience information
+// @Tags Experience
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /experience/{id} [get]
 func readExperience(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -59,6 +73,13 @@ func readExperience(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(jsonData)
 }
 
+// updateExperience godoc
+// @Summary Updates Experience information
+// @Tags Experience
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /experience/{id} [put]
 func updateExperience(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -75,6 +96,13 @@ func updateExperience(w http.ResponseWriter, r *http.Request) {
 	client.UpdateDocument(colExperience, docID, jsonData)
 }
 
+// deleteExperience godoc
+// @Summary Deletes Experience information
+// @Tags Experience
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /experience/{id} [delete]
 func deleteExperience(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -90,6 +118,13 @@ func deleteExperience(w http.ResponseWriter, r *http.Request) {
 	client.DeleteDocument(colExperience, docID)
 }
 
+// getAllExperience godoc
+// @Summary Get all experience information
+// @Tags Experience
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /experience [get]
 func getAllExperience(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	// var experience []models.Experience

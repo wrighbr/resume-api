@@ -30,6 +30,13 @@ func fillInTechSkills(r *http.Request) *models.TechSkills {
 	}
 }
 
+// createTechSkills godoc
+// @Summary Creates Technical skill
+// @Tags TechSkills
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /techskill [post]
 func createTechSkills(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -39,6 +46,13 @@ func createTechSkills(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// readTechSkills godoc
+// @Summary Readss Technical skill
+// @Tags TechSkills
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /techskill/{id} [get]
 func readTechSkills(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -53,6 +67,13 @@ func readTechSkills(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(jsonData)
 }
 
+// createTechSkills godoc
+// @Summary Update Technical skill
+// @Tags TechSkills
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /techskill [put]
 func updateTechSkills(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -69,6 +90,13 @@ func updateTechSkills(w http.ResponseWriter, r *http.Request) {
 	client.UpdateDocument(colTechSkills, docID, jsonData)
 }
 
+// deleteTechSkills godoc
+// @Summary Deletes Technical skill
+// @Tags TechSkills
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /techskill [delete]
 func deleteTechSkills(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 

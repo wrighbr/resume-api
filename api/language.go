@@ -29,6 +29,13 @@ func fillInLanguage(r *http.Request) *models.Language {
 	}
 }
 
+// createLanguage godoc
+// @Summary Creates Language information
+// @Tags Language
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /language [post]
 func createLanguage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -38,6 +45,13 @@ func createLanguage(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// readLanguage godoc
+// @Summary Creates Language information
+// @Tags Language
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /language/{id} [get]
 func readLanguage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -52,6 +66,13 @@ func readLanguage(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(jsonData)
 }
 
+// updateLanguage godoc
+// @Summary Creates Language information
+// @Tags Language
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /language/{id} [put]
 func updateLanguage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -68,6 +89,13 @@ func updateLanguage(w http.ResponseWriter, r *http.Request) {
 	client.UpdateDocument(colLanguage, docID, jsonData)
 }
 
+// readLanguage godoc
+// @Summary Creates Language information
+// @Tags Language
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /language/{id} [delete]
 func deleteLanguage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -83,6 +111,13 @@ func deleteLanguage(w http.ResponseWriter, r *http.Request) {
 	client.DeleteDocument(colLanguage, docID)
 }
 
+// getAllLanguage godoc
+// @Summary Creates Language information
+// @Tags Language
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /language [get]
 func getAllLanguage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	language = nil

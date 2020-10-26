@@ -12,6 +12,12 @@ import (
 
 var jsonResponse = true
 
+// getResume godoc
+// @Summary get the entire resume information
+// @Accept  json
+// @Produce  json
+// @Success 200
+// @Router /resume [get]
 func getResume(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
