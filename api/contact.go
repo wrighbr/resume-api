@@ -12,6 +12,14 @@ import (
 var collectionContactInfo = "contactInfo"
 var contactInfo models.ContactInfo
 
+// getContctInfo godoc
+// @Summary Gets the contact information
+// @Description Get details of all orders
+// @Tags contact
+// @Accept  json
+// @Produce  json
+// @Success 200 {array} Order
+// @Router /contactinfo [get]
 func getContactInfo(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
