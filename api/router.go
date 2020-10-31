@@ -11,41 +11,43 @@ import (
 )
 
 func HandleRequests() {
-
+	setupGoGuardian()
 	router := mux.NewRouter()
 
 	router.HandleFunc("/contactinfo", getContactInfo).Methods("GET")
-	router.HandleFunc("/contactinfo", createContantInfo).Methods("POST")
-	router.HandleFunc("/contactinfo", updateContantInfo).Methods("PUT")
-	router.HandleFunc("/contactinfo", deleteContantInfo).Methods("DELETE")
+	router.HandleFunc("/contactinfo", middleware(http.HandlerFunc(createContantInfo))).Methods("POST")
+	router.HandleFunc("/contactinfo", middleware(http.HandlerFunc(updateContantInfo))).Methods("PUT")
+	router.HandleFunc("/contactinfo", middleware(http.HandlerFunc(deleteContantInfo))).Methods("DELETE")
 
 	router.HandleFunc("/experience", getAllExperience).Methods("GET")
-	router.HandleFunc("/experience", createExperience).Methods("POST")
+	router.HandleFunc("/experience", middleware(http.HandlerFunc(createExperience))).Methods("POST")
 	router.HandleFunc("/experience/{ID}", readExperience).Methods("GET")
-	router.HandleFunc("/experience/{ID}", updateExperience).Methods("PUT")
-	router.HandleFunc("/experience/{ID}", deleteExperience).Methods("DELETE")
+	router.HandleFunc("/experience/{ID}", middleware(http.HandlerFunc(updateExperience))).Methods("PUT")
+	router.HandleFunc("/experience/{ID}", middleware(http.HandlerFunc(deleteExperience))).Methods("DELETE")
 
 	router.HandleFunc("/education", getAllEducation).Methods("GET")
-	router.HandleFunc("/education", createEducation).Methods("POST")
+	router.HandleFunc("/education", middleware(http.HandlerFunc(createEducation))).Methods("POST")
 	router.HandleFunc("/education/{ID}", readEducation).Methods("GET")
-	router.HandleFunc("/education/{ID}", updateEducation).Methods("PUT")
-	router.HandleFunc("/education/{ID}", deleteEducation).Methods("DELETE")
+	router.HandleFunc("/education/{ID}", middleware(http.HandlerFunc(updateEducation))).Methods("PUT")
+	router.HandleFunc("/education/{ID}", middleware(http.HandlerFunc(deleteEducation))).Methods("DELETE")
 
 	router.HandleFunc("/techskill", getAllTechSkills).Methods("GET")
-	router.HandleFunc("/techskill", createTechSkills).Methods("POST")
+	router.HandleFunc("/techskill", middleware(http.HandlerFunc(createTechSkills))).Methods("POST")
 	router.HandleFunc("/techskill/{ID}", readTechSkills).Methods("GET")
-	router.HandleFunc("/techskill/{ID}", updateTechSkills).Methods("PUT")
-	router.HandleFunc("/techskill/{ID}", deleteTechSkills).Methods("DELETE")
+	router.HandleFunc("/techskill/{ID}", middleware(http.HandlerFunc(updateTechSkills))).Methods("PUT")
+	router.HandleFunc("/techskill/{ID}", middleware(http.HandlerFunc(deleteTechSkills))).Methods("DELETE")
 
 	router.HandleFunc("/language", getAllLanguage).Methods("GET")
-	router.HandleFunc("/language", createLanguage).Methods("POST")
+	router.HandleFunc("/language", middleware(http.HandlerFunc(createLanguage))).Methods("POST")
 	router.HandleFunc("/language/{ID}", readLanguage).Methods("GET")
-	router.HandleFunc("/language/{ID}", updateLanguage).Methods("PUT")
-	router.HandleFunc("/language/{ID}", deleteLanguage).Methods("DELETE")
+	router.HandleFunc("/language/{ID}", middleware(http.HandlerFunc(updateLanguage))).Methods("PUT")
+	router.HandleFunc("/language/{ID}", middleware(http.HandlerFunc(deleteLanguage))).Methods("DELETE")
 
 	router.HandleFunc("/resume", getResume).Methods("GET")
+	router.HandleFunc("/token", createToken).Methods("GET")
 
 	router.PathPrefix("/").Handler(httpSwagger.WrapHandler)
+
 	log.Fatal(http.ListenAndServe(":8080", router))
 
 }

@@ -55,3 +55,8 @@ type TechSkills struct {
 	Stars int      `json:"Stars,omitempty"`
 	// Technology []string `json:"technology,omitempty"`
 }
+
+type Auth struct {
+	Username string
+	Password string
+}
