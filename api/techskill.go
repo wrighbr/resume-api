@@ -36,6 +36,7 @@ func fillInTechSkills(r *http.Request) *models.TechSkills {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Param name body models.TechSkills true "TechSkills Information"
 // @Security BasicAuth
 // @Router /techskill [post]
 func createTechSkills(w http.ResponseWriter, r *http.Request) {
@@ -76,6 +77,7 @@ func readTechSkills(w http.ResponseWriter, r *http.Request) {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Param name body models.TechSkills true "TechSkills Information"
 // @Security BasicAuth
 // @Router /techskill [put]
 func updateTechSkills(w http.ResponseWriter, r *http.Request) {

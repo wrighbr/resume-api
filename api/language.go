@@ -35,6 +35,7 @@ func fillInLanguage(r *http.Request) *models.Language {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Param name body models.Language true "Language Information"
 // @Security BasicAuth
 // @Router /language [post]
 func createLanguage(w http.ResponseWriter, r *http.Request) {

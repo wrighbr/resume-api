@@ -42,6 +42,7 @@ func fillInxperience(r *http.Request) *models.Experience {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Param name body models.Experience true "Experience Information"
 // @Security BasicAuth
 // @Router /experience [post]
 func createExperience(w http.ResponseWriter, r *http.Request) {
@@ -82,6 +83,7 @@ func readExperience(w http.ResponseWriter, r *http.Request) {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Param name body models.Experience true "Experience Information"
 // @Security BasicAuth
 // @Router /experience/{id} [put]
 func updateExperience(w http.ResponseWriter, r *http.Request) {
