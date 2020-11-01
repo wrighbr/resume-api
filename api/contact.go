@@ -53,7 +53,6 @@ func createContantInfo(w http.ResponseWriter, r *http.Request) {
 // @Security BasicAuth
 // @Router /contactinfo [put]
 func updateContantInfo(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(r)
 	contactInfo := fillinContactInfo(r)
 	id, _ := client.ReadDocument(collectionContactInfo, 1)
 	fmt.Println(contactInfo)
