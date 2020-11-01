@@ -51,6 +51,8 @@ func createExperience(w http.ResponseWriter, r *http.Request) {
 
 	client.CreateDocument(colExperience, experience)
 
+	location := "/experience/" + strconv.Itoa(experience.ID)
+	w.Header().Set("location", location)
 }
 
 // readExperience godoc

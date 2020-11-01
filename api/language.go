@@ -44,6 +44,8 @@ func createLanguage(w http.ResponseWriter, r *http.Request) {
 
 	client.CreateDocument(colLanguage, language)
 
+	location := "/language/" + strconv.Itoa(language.ID)
+	w.Header().Set("location", location)
 }
 
 // readLanguage godoc

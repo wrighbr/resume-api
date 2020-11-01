@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/wrighbr/resume-api/client"
 	"github.com/wrighbr/resume-api/models"
@@ -42,6 +43,9 @@ func createContantInfo(w http.ResponseWriter, r *http.Request) {
 	contactInfo := fillinContactInfo(r)
 
 	client.CreateDocument(collectionContactInfo, contactInfo)
+
+	location := "/contactinfo/" + strconv.Itoa(contactInfo.ID)
+	w.Header().Set("location", location)
 }
 
 // ContctInfo godoc

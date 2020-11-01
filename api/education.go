@@ -47,6 +47,8 @@ func createEducation(w http.ResponseWriter, r *http.Request) {
 
 	client.CreateDocument(colEducation, education)
 
+	location := "/edueducation/" + strconv.Itoa(education.ID)
+	w.Header().Set("location", location)
 }
 
 // readEducation godoc

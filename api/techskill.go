@@ -45,6 +45,8 @@ func createTechSkills(w http.ResponseWriter, r *http.Request) {
 
 	client.CreateDocument(colTechSkills, techSkills)
 
+	location := "/techskill/" + strconv.Itoa(techSkills.ID)
+	w.Header().Set("location", location)
 }
 
 // readTechSkills godoc
