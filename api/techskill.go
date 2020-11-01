@@ -36,6 +36,7 @@ func fillInTechSkills(r *http.Request) *models.TechSkills {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Security BasicAuth
 // @Router /techskill [post]
 func createTechSkills(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -67,12 +68,13 @@ func readTechSkills(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(jsonData)
 }
 
-// createTechSkills godoc
+// updateTechSkills godoc
 // @Summary Update Technical skill
 // @Tags TechSkills
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Security BasicAuth
 // @Router /techskill [put]
 func updateTechSkills(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -96,6 +98,7 @@ func updateTechSkills(w http.ResponseWriter, r *http.Request) {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Security BasicAuth
 // @Router /techskill [delete]
 func deleteTechSkills(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")

@@ -42,6 +42,7 @@ func fillInxperience(r *http.Request) *models.Experience {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Security BasicAuth
 // @Router /experience [post]
 func createExperience(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -79,6 +80,7 @@ func readExperience(w http.ResponseWriter, r *http.Request) {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Security BasicAuth
 // @Router /experience/{id} [put]
 func updateExperience(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -102,6 +104,7 @@ func updateExperience(w http.ResponseWriter, r *http.Request) {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Security BasicAuth
 // @Router /experience/{id} [delete]
 func deleteExperience(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")

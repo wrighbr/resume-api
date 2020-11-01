@@ -35,6 +35,7 @@ func fillInLanguage(r *http.Request) *models.Language {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Security BasicAuth
 // @Router /language [post]
 func createLanguage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -72,6 +73,7 @@ func readLanguage(w http.ResponseWriter, r *http.Request) {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Security BasicAuth
 // @Router /language/{id} [put]
 func updateLanguage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -95,6 +97,7 @@ func updateLanguage(w http.ResponseWriter, r *http.Request) {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Security BasicAuth
 // @Router /language/{id} [delete]
 func deleteLanguage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")

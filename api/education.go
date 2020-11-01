@@ -38,6 +38,7 @@ func fillInEducation(r *http.Request) *models.Education {
 // @Accept  json
 // @Produce  json
 // @Success 200
+// @Security BasicAuth
 // @Router /education [post]
 func createEducation(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -79,6 +80,7 @@ func readEducation(w http.ResponseWriter, r *http.Request) {
 // @Produce  json
 // @Success 200
 // @Failure 404
+// @Security BasicAuth
 // @Router /education/{id} [put]
 func updateEducation(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -104,6 +106,7 @@ func updateEducation(w http.ResponseWriter, r *http.Request) {
 // @Produce  json
 // @Success 200
 // @Failure 404
+// @Security BasicAuth
 // @Router /education/{id} [delete]
 func deleteEducation(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")

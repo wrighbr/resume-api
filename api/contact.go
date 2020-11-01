@@ -35,6 +35,7 @@ func getContactInfo(w http.ResponseWriter, r *http.Request) {
 // @Tags contact
 // @Accept  json
 // @Success 200
+// @Security BasicAuth
 // @Router /contactinfo [post]
 func createContantInfo(w http.ResponseWriter, r *http.Request) {
 
@@ -45,23 +46,26 @@ func createContantInfo(w http.ResponseWriter, r *http.Request) {
 
 // ContctInfo godoc
 // @Summary Updates contact information
+// @Param name body models.ContactInfo true "Personal Contact Information"
 // @Tags contact
 // @Accept  json
 // @Success 200
+// @Security BasicAuth
 // @Router /contactinfo [put]
 func updateContantInfo(w http.ResponseWriter, r *http.Request) {
-
+	fmt.Println(r)
 	contactInfo := fillinContactInfo(r)
 	id, _ := client.ReadDocument(collectionContactInfo, 1)
-	// fmt.Println(id)
+	fmt.Println(contactInfo)
 	client.UpdateDocument(collectionContactInfo, id, contactInfo)
 }
 
-// createContctInfo godoc
+// deletetContctInfo godoc
 // @Summary Deletes contact information
 // @Tags contact
 // @Accept  json
 // @Success 200
+// @Security BasicAuth
 // @Router /contactinfo [delete]
 func deleteContantInfo(w http.ResponseWriter, r *http.Request) {
 	id, _ := client.ReadDocument(collectionContactInfo, 1)
@@ -76,14 +80,15 @@ func fillinContactInfo(r *http.Request) *models.ContactInfo {
 	json.NewDecoder(r.Body).Decode(&jsonData)
 
 	return &models.ContactInfo{
-		ID:      1,
-		Name:    jsonData.Name,
-		Email:   jsonData.Email,
-		Mobile:  jsonData.Mobile,
-		Address: jsonData.Address,
-		Town:    jsonData.Town,
-		Country: jsonData.Country,
-		Github:  jsonData.Github,
-		Website: jsonData.Website,
+		ID:       1,
+		Name:     jsonData.Name,
+		Email:    jsonData.Email,
+		Mobile:   jsonData.Mobile,
+		Address:  jsonData.Address,
+		Town:     jsonData.Town,
+		Country:  jsonData.Country,
+		Github:   jsonData.Github,
+		Website:  jsonData.Website,
+		PostCode: jsonData.PostCode,
 	}
 }
